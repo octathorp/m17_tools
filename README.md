@@ -17,16 +17,16 @@ Development/research repo for M17 console
 
 Factory system is installed within this partition scheme:
 
-NO  LBA       Name                
-00  00004000  uboot
-01  00006000  trust
-02  00008000  misc
-03  0000A000  boot
-04  0001A000  recovery
-05  0002A000  backup
-06  0003A000  oem
-07  00102000  rootfs
-08  00202000  userdata
+	NO  LBA       Name                
+	00  00004000  uboot
+	01  00006000  trust
+	02  00008000  misc
+	03  0000A000  boot
+	04  0001A000  recovery
+	05  0002A000  backup
+	06  0003A000  oem
+	07  00102000  rootfs
+	08  00202000  userdata
 
 - uboot and trust follow RK norm
 - misc, backup and oem partitions are empty
@@ -88,3 +88,8 @@ Booting device with no SD card inserted will display a basic emulator interface 
 ### Retroarch cores in userdata partition
 
 In general, there is a lot of folders and files on SD card and system rootfs with no particular use or reason, probably things left from manufacturer tests. In this category we can find some roms and Retroarch cores under /userdata path. Cores can be manually launched, but they are prone to crash.
+
+
+### Running other systems on M17
+
+Technically there are no limitations on running another system on this device, as long as someone takes the time to make a port for this platform. Internal flash is writable using rkdeveloptool or even Rockchip proprietary tools, and we have a proper backup of the original content. So given the similarity of this system to Powkiddy A12/A13 or PS5000, that should be the way to go.
