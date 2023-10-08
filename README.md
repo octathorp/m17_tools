@@ -13,6 +13,30 @@ Development/research repo for M17 console
 - **Speaker**: 1 speaker
 
 
+### Default system structure
+
+Factory system is installed within this partition scheme:
+
+NO  LBA       Name                
+00  00004000  uboot
+01  00006000  trust
+02  00008000  misc
+03  0000A000  boot
+04  0001A000  recovery
+05  0002A000  backup
+06  0003A000  oem
+07  00102000  rootfs
+08  00202000  userdata
+
+- uboot and trust follow RK norm
+- misc, backup and oem partitions are empty
+- boot and recovery are Android-scheme boot images. boot has no ramdisk included, recovery seems to not be used in a normal boot process.
+- rootfs contains a custom-built Buildroot Linux system. Using an script at /etc/init.d, em_ui.sh is launched if it's located under SD card mount point, otherwise /usr/bin/game is launched.
+- userdata, despite being mounted, seems to not be used at the current stage.
+
+SD card contains default "emulationstation" binary, config files and ROMs, but whole system is installed on internal memory.
+
+
 ### Loader mode
 
 Connect device to PC with USB cable, keep volume down button pressed, then power on the device.
@@ -44,6 +68,11 @@ But as long as we have ADB shell and root permissions...
 ### Emulationstation binaries
 
 By default, an emulationstation binary on sdcard root is launched. Modifying em_ui.sh and pointing it to run "emulationstation" from system path instead of the sdcard path "/sdcard/emulationstation" will launch the binary present under /usr/bin, whose biggest difference is a new option under EmulationStation settings; Sound options.
+
+
+### EmulationStation Settings
+
+Both "emulationstation" binaries present on this system have been built without normal user settings integrated (on code), so there is no way of "unlocking" options through es_settings.xml or similar methods.
 
 
 ### SD card booting
