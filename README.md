@@ -37,4 +37,25 @@ Root is the default user. Anything you include in em_ui.sh file under sdcard roo
 
 Using rkdeveloptool, rkloader or any other Rockchip-focused tool will only properly backup the first 32MB of flash, due to a bug? in device uboot. Anything beyond this point will be invalid data.
 But as long as we have ADB shell and root permissions...
-  dd if=/dev/mmcblk1 of=/sdcard/backup.img
+
+	dd if=/dev/mmcblk1 of=/sdcard/backup.img
+
+
+### Emulationstation binaries
+
+By default, an emulationstation binary on sdcard root is launched. Modifying em_ui.sh and pointing it to run "emulationstation" from system path instead of the sdcard path "/sdcard/emulationstation" will launch the binary present under /usr/bin, whose biggest difference is a new option under EmulationStation settings; Sound options.
+
+
+### SD card booting
+
+As long as you insert an SD card containing any compatible filesystem, device will try to boot from there instead of internal memory. No working example at this moment, but a good thing to know...
+
+
+### Booting with no SD card
+
+Booting device with no SD card inserted will display a basic emulator interface with some NES games. This happens when /sdcard/em_ui.sh script is not present, and /usr/bin/game is launched instead.
+
+
+### Retroarch cores in userdata partition
+
+In general, there is a lot of folders and files on SD card and system rootfs with no particular use or reason, probably things left from manufacturer tests. In this category we can find some roms and Retroarch cores under /userdata path. Cores can be manually launched, but they are prone to crash.
