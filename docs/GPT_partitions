@@ -1,0 +1,11 @@
+./rkdeveloptool list-partitions
+#   LBA start (sectors)  LBA end (sectors)  Size (bytes)       Name                
+00                16384              24575       4194304       uboot
+01                24576              32767       4194304       trust
+02                32768              40959       4194304       misc
+03                40960             106495      33554432       boot
+04               106496             172031      33554432       recovery
+05               172032             237567      33554432       backup
+06               237568            1056767     419430400       oem
+07              1056768            2105343     536870912       rootfs
+08              2105344            7733214    2881469952       userdata

@@ -1,0 +1,10 @@
+./rkdeveloptool rfi
+Flash Info:
+	Manufacturer: SAMSUNG, value=00
+	Flash Size: 3776 MB
+	Flash Size: 7733248 Sectors
+	Block Size: 512 KB
+	Page Size: 2 KB
+	ECC Bits: 0
+	Access Time: 40
+	Flash CS: Flash<0>
