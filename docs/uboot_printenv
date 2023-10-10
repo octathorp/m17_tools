@@ -1,0 +1,50 @@
+=> printenv
+arch=arm
+baudrate=115200
+board=evb_rk3128
+board_name=evb_rk3128
+boot_a_script=load ${devtype} ${devnum}:${distro_bootpart} ${scriptaddr} ${prefix}${script}; source ${scriptaddr}
+boot_extlinux=sysboot ${devtype} ${devnum}:${distro_bootpart} any ${scriptaddr} ${prefix}extlinux/extlinux.conf
+boot_net_usb_start=usb start
+boot_prefixes=/ /boot/
+boot_script_dhcp=boot.scr.uimg
+boot_scripts=boot.scr.uimg boot.scr
+boot_targets=mmc1 mmc0 rknand0 usb0 pxe dhcp 
+bootargs=storagemedia=emmc androidboot.storagemedia=emmc androidboot.mode=normal 
+bootcmd=boot_android ${devtype} ${devnum};bootrkp;run distro_bootcmd;
+bootcmd_dhcp=run boot_net_usb_start; if dhcp ${scriptaddr} ${boot_script_dhcp}; then source ${scriptaddr}; fi;
+bootcmd_mmc0=setenv devnum 0; run mmc_boot
+bootcmd_mmc1=setenv devnum 1; run mmc_boot
+bootcmd_pxe=run boot_net_usb_start; dhcp; if pxe get; then pxe boot; fi
+bootcmd_rknand0=setenv devnum 0; run rknand_boot
+bootcmd_usb0=setenv devnum 0; run usb_boot
+bootdelay=0
+cpu=armv7
+devnum=0
+devtype=mmc
+distro_bootcmd=for target in ${boot_targets}; do run bootcmd_${target}; done
+fdt_addr1_r=0x61700000
+fdt_addr_r=0x68300000
+kernel_addr1_r=0x62008000
+kernel_addr_r=0x62008000
+mmc_boot=if mmc dev ${devnum}; then setenv devtype mmc; run scan_dev_for_boot_part; fi
+partitions=uuid_disk=${uuid_gpt_disk};name=loader1,start=32K,size=4000K,uuid=${uuid_gpt_loader1};name=loader2,start=8MB,size=4MB,uuid=;
+pxefile_addr1_r=0x60600000
+pxefile_addr_r=0x60600000
+ramdisk_addr1_r=0x63000000
+ramdisk_addr_r=0x6a200000
+rkimg_bootdev=if mmc dev 1 && rkimgtest mmc 1; then setenv devtype mmc; setenv devnum 1; echo Boot from SDcard;elif mmc dev 0; then se 
+scan_dev_for_boot=echo Scanning ${devtype} ${devnum}:${distro_bootpart}...; for prefix in ${boot_prefixes}; do run scan_dev_for_extlin;
+scan_dev_for_boot_part=part list ${devtype} ${devnum} -bootable devplist; env exists devplist || setenv devplist 1; for distro_bootpare
+scan_dev_for_extlinux=if test -e ${devtype} ${devnum}:${distro_bootpart} ${prefix}extlinux/extlinux.conf; then echo Found ${prefix}exti
+scan_dev_for_scripts=for script in ${boot_scripts}; do if test -e ${devtype} ${devnum}:${distro_bootpart} ${prefix}${script}; then eche
+scriptaddr=0x60500000
+scriptaddr1=0x60500000
+serial#=c3d9b8674f4b94f6
+soc=rockchip
+stderr=serial,vidconsole
+stdout=serial,vidconsole
+usb_boot=usb start; if usb dev ${devnum}; then setenv devtype usb; run scan_dev_for_boot_part; fi
+vendor=rockchip
+
+Environment size: 3323/32764 bytes
