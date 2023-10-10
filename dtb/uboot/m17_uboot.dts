@@ -1,0 +1,137 @@
+/dts-v1/;
+
+/ {
+	#address-cells = <0x1>;
+	#size-cells = <0x1>;
+	compatible = "rockchip,rk3126-evb", "rockchip,rk3126";
+	rockchip,sram = <0x1>;
+	model = "Rockchip RK3126 Evaluation board";
+
+	chosen {
+		stdout-path = "/serial2@20068000";
+	};
+
+	aliases {
+		serial1 = "/serial1@20064000";
+		serial2 = "/serial2@20068000";
+		mmc0 = "/dwmmc@1021c000";
+	};
+
+	nandc@10500000 {
+		compatible = "rockchip,rk-nandc";
+		reg = <0x10500000 0x4000>;
+		interrupts = <0x0 0x12 0x4>;
+		nandc_id = <0x0>;
+		clocks = <0x3 0x43 0x3 0x1c5>;
+		clock-names = "clk_nandc", "hclk_nandc";
+		status = "okay";
+		u-boot,dm-pre-reloc;
+	};
+
+	dmc@20004000 {
+		compatible = "rockchip,rk3128-dmc", "syscon";
+		reg = <0x0 0x20004000 0x0 0x1000>;
+		u-boot,dm-pre-reloc;
+	};
+
+	clock-controller@20000000 {
+		compatible = "rockchip,rk3128-cru";
+		reg = <0x20000000 0x1000>;
+		rockchip,grf = <0x5>;
+		#clock-cells = <0x1>;
+		#reset-cells = <0x1>;
+		u-boot,dm-pre-reloc;
+		phandle = <0x3>;
+	};
+
+	serial1@20064000 {
+		compatible = "rockchip,rk3128-uart", "snps,dw-apb-uart";
+		reg = <0x20064000 0x100>;
+		interrupts = <0x0 0x15 0x4>;
+		reg-shift = <0x2>;
+		reg-io-width = <0x4>;
+		clock-frequency = <0x16e3600>;
+		clocks = <0x3 0x4e 0x3 0x156>;
+		clock-names = "baudclk", "apb_pclk";
+		dmas = <0x9 0x4 0x9 0x5>;
+		#dma-cells = <0x2>;
+		u-boot,dm-pre-reloc;
+		status = "okay";
+	};
+
+	serial2@20068000 {
+		compatible = "rockchip,rk3128-uart", "snps,dw-apb-uart";
+		reg = <0x20068000 0x100>;
+		interrupts = <0x0 0x16 0x4>;
+		reg-shift = <0x2>;
+		reg-io-width = <0x4>;
+		clock-frequency = <0x16e3600>;
+		clocks = <0x3 0x4f 0x3 0x157>;
+		clock-names = "baudclk", "apb_pclk";
+		dmas = <0x9 0x6 0x9 0x7>;
+		#dma-cells = <0x2>;
+		u-boot,dm-pre-reloc;
+		status = "okay";
+	};
+
+	usb2-phy {
+		compatible = "rockchip,rk3128-usb2phy";
+		reg = <0x17c 0xc>;
+		rockchip,grf = <0x5>;
+		clocks = <0x3 0x8e>;
+		clock-names = "phyclk";
+		#clock-cells = <0x0>;
+		clock-output-names = "usb480m_phy";
+		#phy-cells = <0x1>;
+		status = "okay";
+		u-boot,dm-pre-reloc;
+		phandle = <0x17>;
+
+		otg-port {
+			#phy-cells = <0x0>;
+			interrupts = <0x0 0x23 0x4 0x0 0x33 0x4 0x0 0x34 0x4>;
+			interrupt-names = "otg-bvalid", "otg-id", "linestate";
+			status = "okay";
+			u-boot,dm-pre-reloc;
+		};
+	};
+
+	usb@10180000 {
+		compatible = "rockchip,rk3128-usb", "rockchip,rk3288-usb", "snps,dwc2";
+		reg = <0x10180000 0x40000>;
+		interrupts = <0x0 0xa 0x4>;
+		dr_mode = "otg";
+		g-use-dma;
+		hnp-srp-disable;
+		phys = <0x17 0x0>;
+		phy-names = "usb";
+		status = "okay";
+		u-boot,dm-pre-reloc;
+		vbus-supply = <0x18>;
+	};
+
+	dwmmc@1021c000 {
+		compatible = "rockchip,rk3128-dw-mshc", "rockchip,rk3288-dw-mshc";
+		reg = <0x1021c000 0x4000>;
+		max-frequency = <0x8f0d180>;
+		interrupts = <0x0 0x10 0x4>;
+		clocks = <0x3 0x1cb 0x3 0x47 0x3 0x75 0x3 0x79>;
+		clock-names = "biu", "ciu", "ciu-drv", "ciu-sample";
+		bus-width = <0x8>;
+		default-sample-phase = <0x9e>;
+		num-slots = <0x1>;
+		fifo-depth = <0x100>;
+		resets = <0x3 0x53>;
+		reset-names = "reset";
+		status = "okay";
+		u-boot,dm-pre-reloc;
+		fifo-mode;
+	};
+
+	syscon@20008000 {
+		compatible = "rockchip,rk3128-grf", "syscon";
+		reg = <0x20008000 0x1000>;
+		u-boot,dm-pre-reloc;
+		phandle = <0x5>;
+	};
+};
