@@ -93,3 +93,13 @@ In general, there is a lot of folders and files on SD card and system rootfs wit
 ### Running other systems on M17
 
 Technically there are no limitations on running another system on this device, as long as someone takes the time to make a port for this platform. Internal flash is writable using rkdeveloptool or even Rockchip proprietary tools, and we have a proper backup of the original content. So given the similarity of this system to Powkiddy A12/A13 or PS5000, that should be the way to go.
+
+
+### Force Maskrom mode
+
+[Short circuit this test point with GND](docs/Maskrom%20-%20Bridge_this_point_with_GND.jpg)
+
+
+### Recovering from a bad flash
+
+[Instructions on how to recover this device in case of a bad flash](docs/Recovering-from-a-bad-flash.md)
