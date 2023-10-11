@@ -95,9 +95,19 @@ In general, there is a lot of folders and files on SD card and system rootfs wit
 Technically there are no limitations on running another system on this device, as long as someone takes the time to make a port for this platform. Internal flash is writable using rkdeveloptool or even Rockchip proprietary tools, and we have a proper backup of the original content. So given the similarity of this system to Powkiddy A12/A13 or PS5000, that should be the way to go.
 
 
+### UART interface
+
+[Three points indicated, square one is GND](docs/internal_interfaces.jpg)
+
+
 ### Force Maskrom mode
 
-[Short circuit this test point with GND](docs/Maskrom%20-%20Bridge_this_point_with_GND.jpg)
+[Short circuit this test point with GND](docs/internal_interfaces.jpg)
+
+
+### Debugging with UART while booting from SD card
+
+It's impossible, as some CPU bus is shared between UART and SD card, so logging text is corrupted with SD card activity electrical noise...
 
 
 ### Recovering from a bad flash
