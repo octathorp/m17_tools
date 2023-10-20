@@ -7,7 +7,11 @@ It's based on PS5000 version, modified and adapted for running on M17 hardware, 
 ### Warnings
 
 Installing this will overwrite stock system. Unless you restore original rootfs partition after installing this, you will not be able to run original system again.
-This is not a SD-only installation. Do not use this if you don't understand these warnings.
+This is not a SD-only installation. 
+
+We are not aware of different hardware revisions, but being an obscure device anything can happen. Make sure you have a device emmc backup.
+
+Do not use this if you don't understand these warnings.
 
 ### Installation
 
