@@ -13,6 +13,11 @@ Development/research repo for M17 console
 - **Speaker**: 1 speaker
 
 
+### Custom firmware (RukaCFW Retroarch)
+
+[Read more here](https://github.com/octathorp/m17_tools/blob/master/docs/cfw_install_instructions.md)
+
+
 ### Default system structure
 
 Factory system is installed within this partition scheme:
