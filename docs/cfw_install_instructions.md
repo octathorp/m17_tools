@@ -8,7 +8,7 @@ It's based on PS5000 version, modified and adapted for running on M17 hardware, 
 
 1.- Make sure you have a device backup, as explained in [Readme.](https://github.com/octathorp/m17_tools/blob/master/README.md)
 
-2.- Download zip from CFW folder.
+2.- Download zip from [this repo Releases section.](https://github.com/octathorp/m17_tools/releases)
 
 3.- Unpack it, write rootfs.img in Loader mode with your preferred RK tool [I'm using rkdeveloptool fork from Pine64.](https://gitlab.com/pine64-org/quartz-bsp/rkdeveloptool)
 
