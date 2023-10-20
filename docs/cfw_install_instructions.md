@@ -4,6 +4,11 @@ This is an adaptation/port of this original project: https://github.com/Ruka-CFW
 
 It's based on PS5000 version, modified and adapted for running on M17 hardware, so original features apply, surely a lot of new bugs also from my side.
 
+### Warnings
+
+Installing this will overwrite stock system. Unless you restore original rootfs partition after installing this, you will not be able to run original system again.
+This is not a SD-only installation. Do not use this if you don't understand these warnings.
+
 ### Installation
 
 1.- Make sure you have a device backup, as explained in [Readme.](https://github.com/octathorp/m17_tools/blob/master/README.md)
