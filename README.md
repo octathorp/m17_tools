@@ -15,7 +15,7 @@ Development/research repo for M17 console
 
 ### Custom firmware (RukaCFW Retroarch)
 
-[Read more here](https://github.com/octathorp/m17_tools/blob/master/docs/cfw_install_instructions.md)
+[Read more here](docs/sd_cfw_install_instructions.md)
 
 
 ### Default system structure
@@ -80,11 +80,6 @@ By default, an emulationstation binary on sdcard root is launched. Modifying em_
 Both "emulationstation" binaries present on this system have been built without normal user settings integrated (on code), so there is no way of "unlocking" options through es_settings.xml or similar methods.
 
 
-### SD card booting
-
-As long as you insert an SD card containing any compatible filesystem, device will try to boot from there instead of internal memory. No working example at this moment, but a good thing to know...
-
-
 ### Booting with no SD card
 
 Booting device with no SD card inserted will display a basic emulator interface with some NES games. This happens when /sdcard/em_ui.sh script is not present, and /usr/bin/game is launched instead.
@@ -99,7 +94,7 @@ In general, there is a lot of folders and files on SD card and system rootfs wit
 
 ~~Technically there are no limitations on running another system on this device, as long as someone takes the time to make a port for this platform. Internal flash is writable using rkdeveloptool or even Rockchip proprietary tools, and we have a proper backup of the original content. So given the similarity of this system to Powkiddy A12/A13 or PS5000, that should be the way to go.~~
 
-[You could give a try to this, no guarantees](docs/cfw_install_instructions.md)
+[You could give a try to this, no guarantees](docs/sd_cfw_install_instructions.md)
 
 
 ### UART interface
