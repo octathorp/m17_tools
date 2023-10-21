@@ -1,5 +1,7 @@
 # Ruka RK3128 Custom Firmware for M17
 
+# DEPRECATED - DO NOT USE THIS, [USE SD BOOTABLE RELEASE](https://github.com/octathorp/m17_tools/blob/master/docs/sd_cfw_install_instructions.md)
+
 This is an adaptation/port of this original project: https://github.com/Ruka-CFW/rk3128-cfw
 
 It's based on PS5000 version, modified and adapted for running on M17 hardware, so original features apply, surely a lot of new bugs also from my side.
