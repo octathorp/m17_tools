@@ -14,13 +14,17 @@ It's based on PS5000 version, modified and adapted for running on M17 hardware, 
 
 4.- You will be presented with the usual "Loading..." screen, then a new one with the text "Resizing SD card partitions, please wait", so please wait as it could take several minutes, depending on your SD.
 
-5.- Once done, display will show Ruka CFW blue error screen. It's ok, turn off the device, extract the SD card and insert in your PC.
+5.- Once done, display will show Ruka CFW blue error screen. It's ok, turn off the device, extract the SD card and insert it in your PC.
 
 6.- Copy the contents of the SD folder from the release zip under the "SHARE" partition. Make sure ".config" folder is copied also, as some systems could hide it.
 
-7.- Extract your SD from the computer, insert on device and turn it on again, after a few seconds Retroarch should start.
+7.- Extract your SD from the computer, insert on device and turn it on again.
 
-8.- Enjoy
+8.- A new message, "Creating swap file, please wait" will show. Depending on your SD card, it could take between 10-15 minutes.
+
+9.- Once done, Retroarch interface will be presented.
+
+10.- Enjoy
 
 ### Things to note
 
