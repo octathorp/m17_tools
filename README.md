@@ -114,6 +114,6 @@ It's impossible, as some CPU bus is shared between UART and SD card, so logging 
 
 ### Recovering from a bad flash
 
-[Device recovery with a SD bootable image](docs/device_recovery.md)
+[Device recovery](docs/device_recovery.md)
 
 [My first experience recovering this device, do not follow this procedure](docs/Recovering-from-a-bad-flash.md)
